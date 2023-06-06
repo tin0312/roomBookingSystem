@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href='resources/style.css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+    <title>User Home</title>
+  </head>
+
+  <body class="bg-nav">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 p-2">
+          <img src="/resources/logo_dark.webp" alt="OntarioTechU Icon" width="200" height="70">
+        </div>
+        <div class="col-md-3 p-2" style="margin-top: 20px
+        ;">
+          <h5 class="my-0 mr-md-auto text-light font-weight-normal"> Room Reservation System</h5>
+        </div>
+        <div class="col-md-6 p-2">
+          <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3  ">
+            <nav class="my-2 my-md-0 mr-md-3">
+              <button type="button" class="btn btn-primary text-light" data-bs-toggle="modal" data-bs-target="#howto" style="border: none; background: none; text-decoration: underline;">
+                How to Book
+              </button>
+                      <!-- Modal -->
+              <div class="modal fade" id="howto" tabindex="-1" role="dialog" aria-labelledby="BookingLable" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="BookingLable">How to Book</h5>
+                      <button type="button" class="btn close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>When at the Main Booking Page:</p>
+
+                      <ol>
+                      <li>Select the day that you would like to book the room</li>
+                      <li>Select a room and click an open time in that column</li>
+                      <li>Fill in all fields:</li>
+                      <ul>
+                      <li>Group Name</li>
+                      <li>Group code (4 characters)</li>
+                      <li>Duration</li>
+                      <li>Institution</li>
+                      <li>Student ID &amp;</li>
+                      <li>Network Password</li>
+                      </ul>
+                      <li>Click on Create group</li>
+                      <li>An incomplete booking is shown by the word &ldquo;Open&rdquo; with a light Green background in the booking calendar</li>
+                      <li>For LIB303 &ndash; LIB310 room bookings, additional group member ID and Password will be needed to complete and maintain the reservation</li>
+                      <li>To complete the reservation, the second/third group member needs to &ldquo;join&rdquo; your group by clicking on your incomplete booking for the same day, time, and room</li>
+                      <li>Select the appropriate group name and click on &ldquo;Create or Join a Group&rdquo;</li>
+                      <li>Fill in all fields (as above)</li>
+                      <li>Once the appropriate numbers of ID/Passwords have been entered, the reservation is complete!</li>
+                      <li>Bookings can be confirmed using <em>My bookings </em>found in the top menu</li>
+                      </ol>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-primary text-light" data-bs-toggle="modal" data-bs-target="#rules" style="border: none; background: none; text-decoration: underline;">
+                Rules
+              </button>
+                      <!-- Modal -->
+              <div class="modal fade" id="rules" tabindex="-1" role="dialog" aria-labelledby="Lable" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="BookingLable">Rules</h5>
+                      <button type="button" class="btn close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <h4>Booking Guidelines</h4>
+                      <ol>
+                      <li>These group study rooms are located at the North Oshawa Library.</li>
+                      <li>Your student ID can only be used once per day to a maximum of 20 bookings per term.</li>
+                      <li>Bookings are available for a maximum of 3 hours per day (LIB202A &ndash; C) or 4 hours per day (LIB303 &ndash; 310).</li>
+                      <li>Bookings can be made up to a week in advance.</li>
+                      <li>New booking dates are added at 10 am.</li>
+                      <li>Bookings cannot be created five minutes before the start time.</li>
+                      <li>You cannot &ldquo;join&rdquo; or &ldquo;cancel&rdquo; a booking 30 minutes before the booking start time.</li>
+                      <li>If you cancel your reservation, you may re-use your student ID to create a booking for the same day.</li>
+                      <li>The booking system will not accept passwords longer than 15 characters and will reject any password with apostrophe character ( ' )</li>
+                      </ol>
+
+                      <h4>Room Use Guidelines</h4>
+                      <ol>
+                      <li>Campus mask and physical distancing rules apply in these rooms.</li>
+                      <li>Food and drinks are not allowed.</li>
+                      <li>Maximum capacity limits:</li>
+
+                      <ul>
+                      <li>LIB202A, 202B, and 202C: 4 people</li>
+                      <li>LIB303 &ndash; LIB310: 8 people</li>
+                      </ul>
+
+                      <li>Attempts to monopolize rooms will be considered a breach of the Building Use Guidelines. The library reserves the right to cancel bookings and/or suspend booking privileges. It is the intent of the system to set the maximum for a single group’s bookings:</li>
+                       <ul>
+                          <li>LIB202A, 202B and 202C: 3 hours/day</li>
+                          <li>LIB303 – LIB310: 4 hours/day</li>
+                       </ul>
+                      <li>Bookings may be forfeited for rooms occupied by fewer than the required number of persons to book the room.</li>
+                      <li>If a room is vacant 15 minutes after the booking start time, the group&rsquo;s entire booking is void and the room is free for use until the next group&rsquo;s reservation.</li>
+                      <li>Please do not try to reposition any equipment (projector, smart board etc.) and please do not unplug or remove any preexisting cords or cables.</li>
+                      <li>Students using the rooms are responsible for any damage that may occur.</li>
+                      <li>Campus ID is required for the loan of equipment from the Service Desk.</li>
+                      <li>Please be mindful of noise levels as the space is not sound proof.</li>
+                      <li>The group study rooms are intended for &ldquo;organized groups&rdquo;; individuals should not join a group unless they have a prior affiliation with that group - the original booker is the &ldquo;owner&rdquo; of the booking and can ask any &ldquo;joiners&rdquo; to leave the booking or the room.</li>
+                      </ol>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <a class="btn btn-outline-primary text-light" style=" background-color:#e77d2a; border-color: #e77d2a;" href="/userlogout">
+              Log Out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row mt-3">
+          <div class="col-md-9 p-2">
+            <div class="card table-responsive">
+              <img src="/resources/icon.png" alt="OntarioTechU Icon" width="50" height="50">
+              <div class="card-body userInfo">
+                  <div class=row>
+                      <h3>Welcome, {{ firstname }} {{ lastname }} !</h3>
+
+                  </div>
+                  <p class="bold">Your Reservation: </p>
+
+                  {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                  <ul class="messages">
+                    {% for message in messages %}
+                    <li class="text-danger">{{ message }}</li>
+                    {% endfor %}
+                  </ul>
+                  {% endif %}
+                  {% endwith %}
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Room#</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Occupancy</th>
+                        <th>Status</th>
+                        <th>Admin</th>
+                        <th>Change</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table mt-3">
+                      {% for reservation in reservations %}
+                      <tr>
+                        <td>{{ reservation.roomNo }}</td>
+                        <td>{{ reservation.date.strftime('%m/%d/%Y') }}</td>
+                        <td>{{ reservation.start_time }} - {{ reservation.end_time }}</td>
+                        <td>{{ reservation.occupancy }}</td>
+                        <td>{{ reservation.status }}</td>
+                        <td></td>
+                        <td>
+                          <a class="btn btn-outline-primary text-light mt-3
+                          {% if reservation.status == 'cancelled' %}
+                          disabled
+                          {% endif %}
+                          " style=" background-color:#0077ca; border-color: #0077ca;"
+                            href="/reservation?id={{reservation.reservation_id}}">
+                            Modify</a>
+                          <a class="btn btn-outline-primary text-light mt-3" style=" background-color:#0077ca; border-color: #0077ca;"
+                            href="/cancel/{{ reservation.reservation_id}}">
+                            Cancel</a>
+                        </td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+
+
+                  </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 p-2">
+              <div class="card">
+                  <div class="card-body">
+                      <p>Create a new reservation</p>
+                      <a href="/reservation">
+                      <button class="btn btn-danger btn-block" data-bs-toggle="modal" data-bs-target="#book" style=" background-color:#e77d2a; border-color: #e77d2a;">
+                        Book</button>
+                      </a>        
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+.bg-nav{
+    background: #0575E6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #021B79, #0575E6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #021B79, #0575E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.mt-125{
+    margin-top: 125px;
+    margin-bottom: 50px;
+}
+
+.round-bt {
+    border-radius: 18px;
+    -moz-border-radius: 5px ;
+}
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            /* Footer height */
+  }
+

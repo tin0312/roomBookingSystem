@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href='resources/style.css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+    <title>User Registration</title>
+  </head>
+
+  <body class="bg-nav">
+    <nav class="navbar">
+        <img src="/resources/logo_dark.webp" alt="OntarioTechU Icon" width="200" height="70">
+        <a href="" class="navbar-brand text-light" style="font-size: 100;">Room Reservation System</a>
+
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="text-light display-4 mt-125" style="font-size: 80;">Get started. Create an account.</h1>
+                <p class="text-light mt-2">Account registration for Student and Teaching Staff.</p>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/resources/icon.png" alt="OntarioTechU Icon" width="50" height="50">
+                    <div class="card-body">
+                        <form class="form-group" method="post" action="/add_user">
+                            <select class="form-select" aria-label="studentOrTeacher" name="status" required>
+                              <option selected>Are you a ... </option>
+                              <option value="1">Student</option>
+                              <option value="2">Teaching Faculty</option>
+                            </select>
+                            <br>
+                            <label for="firstname">First Name:</label><br>
+                            <input type="text" class="form-control" name="firstname" required><br>
+                            <label for="lastname">Last Name:</label><br>
+                            <input type="text" class="form-control" name="lastname" required><br>
+                            <label for="email">Email:</label><br>
+                            <input type="text" class="form-control" name="email" required><br>
+                            <label>Username:</label><br>
+                            <input type="username" class="form-control" name="username" required><br>
+                            <label for="password" id="togglePassword" >Password:</label><br>
+                            <input type="{% if show_password %}text{% else %}password{% endif %}" id="password" name="password" class="form-control" required><br>
+                            <p class="text-danger">{{ errorMsg }}</p>
+                            <p class="text-success">{{ okMsg }}</p>
+                            <br>
+                            <input type="checkbox" onclick="togglePassword()" {% if show_password %}checked{% endif %}> Show Password
+                            <br>
+                            <br>
+                            <input type="submit" value="Create" class=" btn btn-primary btn-block btn-lg">
+                        </form>
+                        <p class="mt-2">Have an user account ? <a href="/">Login Here.</a><p>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+   <script>
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
+</body>
+</html>

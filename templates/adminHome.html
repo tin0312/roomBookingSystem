@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/resources/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+      crossorigin="anonymous"
+    />
+
+    <title>Admin Home</title>
+  </head>
+
+  <body class="bg-nav">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 p-2">
+          <img
+            src="/resources/logo_dark.webp"
+            alt="OntarioTechU Icon"
+            width="200"
+            height="70"
+          />
+        </div>
+        <div class="col-md-3 p-2" style="margin-top: 20px">
+          <h5 class="my-0 mr-md-auto text-light font-weight-normal">
+            Room Reservation System
+          </h5>
+        </div>
+        <div class="col-md-6 p-2">
+          <div
+            class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3"
+          >
+            <a
+              class="btn btn-outline-primary text-light"
+              style="background-color: #e77d2a; border-color: #e77d2a"
+              href="/adminlogin"
+            >
+              Log Out</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row mt-3">
+        <div class="col-md-12 p-2">
+          <div class="card table-responsive">
+            <img
+              src="/resources/icon.png"
+              alt="OntarioTechU Icon"
+              width="50"
+              height="50"
+            />
+            <div class="card-body userInfo">
+              <h3>Welcome, Administrator {{ username }}.</h3>
+              <div class="row mt-3">
+                <div class="col-md-3 p-2">
+                  <div class="card">
+                    <div class="card-body">
+                      <p>Create new room reservation for user.</p>
+                      <a href="/adreservation">
+                        <button
+                          class="btn btn-danger btn-block"
+                          style="
+                            background-color: #e77d2a;
+                            border-color: #e77d2a;
+                          "
+                        >
+                          Book
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="bold">All Reservations:</p>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="Text input with dropdown button"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      class="btn btn-outline-secondary dropdown-toggle"
+                      type="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      Filter
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">Reservation ID</a>
+                      <a class="dropdown-item" href="#">First Name</a>
+                      <a class="dropdown-item" href="#">Last Name</a>
+                      <a class="dropdown-item" href="#">Email</a>
+                      <a class="dropdown-item" href="#">Room</a>
+                      <a class="dropdown-item" href="#">Start-time</a>
+                      <a class="dropdown-item" href="#">End-time</a>
+                    </div>
+                  </div>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Room#</th>
+                        <th>Occupancy</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                        <th>Change</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table mt-3">
+                      {% for content in content %}
+                      <tr>
+                        <td>{{ content.roomNo }}</td>
+                        <td>{{ content.occupancy }}</td>
+                        <td>{{ content.date.strftime('%m/%d/%Y') }}</td>
+                        <td>
+                          {{ content.start_time }} - {{ content.end_time }}
+                        </td>
+                        <td>{{ content.status }}</td>
+                        <td>
+                          <a
+                            class="btn btn-outline-primary text-light mt-3 {% if content.status == 'cancelled' %} disabled {% endif %}"
+                            style="
+                              background-color: #0077ca;
+                              border-color: #0077ca;
+                            "
+                            href="/adreservation?id={{content.reservation_id}}"
+                          >
+                            Modify</a
+                          >
+                          <a
+                            class="btn btn-outline-primary text-light mt-3"
+                            style="
+                              background-color: #0077ca;
+                              border-color: #0077ca;
+                            "
+                            href="/adcancel/{{content.reservation_id}}"
+                          >
+                            Cancel</a
+                          >
+                        </td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"
+      integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

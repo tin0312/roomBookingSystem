@@ -1,0 +1,126 @@
+!DOCTYPE html>
+<html>
+  <head>
+    <title>Reservation Form</title>
+    <link rel="stylesheet" type="text/css" href="resources/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <style>
+      .container {
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        border-radius: 5px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+    </style>
+  </head>
+
+  <body class="bg-nav">
+    <div class="container">
+      <h2 class="text-center mt-5 mb-3">
+        {% if reservation %}
+          Update Reservation
+        {% else %}
+          Make Reservation
+        {% endif %}
+      </h2>
+      <form method="POST" action="{% if reservation %}/adreservation?id={{reservation.reservation_id}}{% else %}/adreservation{% endif %}">
+        <div class="form-group">
+          <label for="room-number">Select User:</label>
+          <select
+            id="username"
+            name="username"
+            class="form-control"
+            required
+          >
+            <option value="">Select User</option>
+            {% for user in users %}
+              <option value="{{ user['username'] }}">{{ user['firstname'] + " " + user['lastname']}}</option>
+            {% endfor %}
+          </select>
+          </div>
+        <div class="form-group">
+          <label for="room-number">Room Number:</label>
+          <select
+            id="room-number"
+            name="room-number"
+            class="form-control"
+            required
+          >
+            <option value="">Select Room Number</option>
+            {% for room in rooms %}
+              <option value="{{ room.roomNo }}" {% if reservation and reservation.roomNo==room.roomNo %}selected{% endif %}>{{ room.roomNo + " - " + room.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="start-time">Start Time:</label>
+          <input
+            type="time"
+            id="start-time"
+            name="start-time"
+            class="form-control"
+            value="{% if reservation %}{{ reservation.start_time }}{% endif %}"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="end-time">End Time:</label>
+          <input
+            type="time"
+            id="end-time"
+            name="end-time"
+            class="form-control"
+            required
+            value="{% if reservation %}{{ reservation.end_time }}{% endif %}"
+          />
+        </div>
+        <div class="form-group">
+          <label for="date">Date:</label>
+          <input
+            type="date"
+            id="date"
+            name="date"
+            class="form-control"
+            required
+            value="{% if reservation %}{{ reservation.date }}{% endif %}"
+          />
+        </div>
+        <div class="form-group">
+          <label for="occupancy">Occupancy:</label>
+          <input
+            type="number"
+            id="occupancy"
+            name="occupancy"
+            class="form-control"
+            min="1"
+            placeholder="Enter room occupancy"
+            required
+            value="{% if reservation %}{{ reservation.occupancy }}{% endif %}"
+          />
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        {% if errorMsg %}
+        <p class="text-danger">{{ errorMsg }}</p>
+        {% endif %}
+      </form>
+    </div>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+      crossorigin="anonymous"
+    />
+  </body>
+</html>
