@@ -55,4 +55,6 @@ The full booking system allows students at Ontario Tech University to book their
 
 ## Acknowledgement
 
+
 - My partner at Ontario Tech University.  
+- This project was done with discord communication channel, therefore all updates are not available on Github. 
