@@ -1,0 +1,34 @@
+# Byte-compiled / optimized Python files
+__pycache__/
+*.pyc
+*.pyo
+__init__.pyc
+__init__.pyo
+
+# Virtual environment
+venv/
+
+# IDE-specific files and directories
+.idea/
+.vscode/
+
+# Logs and databases
+*.log
+*.db
+
+# Configuration files that may contain sensitive information
+config.py
+
+# Local development environment settings
+.env
+
+# Compiled Python files
+*.pyc
+
+# Dependency directories
+lib/
+lib64/
+bin/
+include/
+libexec/
+share/

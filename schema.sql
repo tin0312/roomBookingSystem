@@ -73,7 +73,7 @@ CREATE TABLE `adminaccount` (
   `firstname` varchar(25) NOT NULL,
   `lastname` varchar(25) NOT NULL,
   `email` varchar(255) NOT NULL,
-  UNIQUE KEY `username` (`username`)
+  UNIQUE KEY `username` (`username`),
   UNIQUE (email),
   CONSTRAINT legalname UNIQUE (firstname, lastname, username));
 
@@ -104,6 +104,6 @@ CREATE TABLE `faculty` (
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `legalname` (`firstname`,`lastname`),
   CONSTRAINT `fk_faculty_useraccount` FOREIGN KEY (`username`) REFERENCES `useraccount` (`username`) ON UPDATE CASCADE
-)
+);
 
  
